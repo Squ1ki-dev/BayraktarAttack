@@ -10,8 +10,12 @@ public partial class Player : MonoBehaviour
     [SerializeField] private float _moveSpeed;
     [SerializeField] private float _rotateSpeed;
 
-    private Rigidbody _rigidbody;
+    [SerializeField] private Transform _bulletSpawnPoint;
+    [SerializeField] private GameObject _bulletPrefab;
 
+    private RaycastHit _hit;
+
+    private Rigidbody _rigidbody;
     private Vector3 _moveVector;
 
     private void Awake() 
@@ -22,5 +26,6 @@ public partial class Player : MonoBehaviour
     private void Update() 
     {
         Move();
+        Shoot();
     }
 }

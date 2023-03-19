@@ -334,6 +334,9 @@
 -r:"Library/Bee/artifacts/1300b0aE.dag/Unity.Mathematics.Editor.ref.dll"
 -r:"Library/Bee/artifacts/1300b0aE.dag/Unity.Mathematics.ref.dll"
 -r:"Library/Bee/artifacts/1300b0aE.dag/Unity.PlasticSCM.Editor.ref.dll"
+-r:"Library/Bee/artifacts/1300b0aE.dag/Unity.Recorder.Base.ref.dll"
+-r:"Library/Bee/artifacts/1300b0aE.dag/Unity.Recorder.Editor.ref.dll"
+-r:"Library/Bee/artifacts/1300b0aE.dag/Unity.Recorder.ref.dll"
 -r:"Library/Bee/artifacts/1300b0aE.dag/Unity.RenderPipeline.Universal.ShaderLibrary.ref.dll"
 -r:"Library/Bee/artifacts/1300b0aE.dag/Unity.RenderPipelines.Core.Editor.ref.dll"
 -r:"Library/Bee/artifacts/1300b0aE.dag/Unity.RenderPipelines.Core.Runtime.ref.dll"
@@ -366,8 +369,11 @@
 "Assets/Joystick Pack/Scripts/Joysticks/FixedJoystick.cs"
 "Assets/Joystick Pack/Scripts/Joysticks/FloatingJoystick.cs"
 "Assets/Joystick Pack/Scripts/Joysticks/VariableJoystick.cs"
+"Assets/_Scripts/Bullet.cs"
 "Assets/_Scripts/Player.cs"
 "Assets/_Scripts/Player.Movement.cs"
+"Assets/_Scripts/Player.Shooting.cs"
+"Assets/_Scripts/Tank.cs"
 -langversion:9.0
 
 /deterministic
