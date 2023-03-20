@@ -375,6 +375,7 @@
 "Assets/_Scripts/Player.cs"
 "Assets/_Scripts/Player.Movement.cs"
 "Assets/_Scripts/Player.Shooting.cs"
+"Assets/_Scripts/SpawnEnemy.cs"
 "Assets/_Scripts/Tank.cs"
 -langversion:9.0
 

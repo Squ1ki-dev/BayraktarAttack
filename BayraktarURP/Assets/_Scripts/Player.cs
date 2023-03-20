@@ -12,6 +12,7 @@ public partial class Player : MonoBehaviour
 
     [SerializeField] private Transform _bulletSpawnPoint;
     [SerializeField] private GameObject _bulletPrefab;
+    [SerializeField] private float _bulletSpeed;
 
     private RaycastHit _hit;
 
@@ -23,9 +24,8 @@ public partial class Player : MonoBehaviour
         _rigidbody = GetComponent<Rigidbody>();
     }
 
-    private void Update() 
+    private void FixedUpdate() 
     {
         Move();
-        Shoot();
     }
 }

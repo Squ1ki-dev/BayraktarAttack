@@ -9,6 +9,9 @@ public class Tank : MonoBehaviour
         Bullet bullet = other.GetComponent<Bullet>();
 
         if(bullet)
+        {
+            SpawnEnemy.Instance.EnemyKilled++;
             Destroy(gameObject);
+        }
     }
 }

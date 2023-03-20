@@ -4,13 +4,13 @@ using UnityEngine;
 
 public partial class Player
 {
-    private void Shoot()
+    private void OnTriggerEnter(Collider other) 
     {
-        if(Physics.Raycast(transform.position, -Vector3.up, out _hit, 100f) && _hit.transform.tag == "Enemy")
+        Tank tank = other.GetComponent<Tank>();
+        if(tank)
         {
-            var bullet = Instantiate(_bulletPrefab, _bulletSpawnPoint.position, Quaternion.identity);
+            Instantiate(_bulletPrefab, _bulletSpawnPoint.position, Quaternion.identity);
+            _bulletPrefab.GetComponent<Rigidbody>().velocity = -_bulletSpawnPoint.forward * _bulletSpeed;
         }
-        else
-            Debug.DrawRay(transform.position, _hit.point, Color.red);
     }
 }
