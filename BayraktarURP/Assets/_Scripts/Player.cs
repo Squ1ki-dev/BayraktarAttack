@@ -13,6 +13,7 @@ public partial class Player : MonoBehaviour
     [SerializeField] private Transform _bulletSpawnPoint;
     [SerializeField] private GameObject _bulletPrefab;
     [SerializeField] private float _bulletSpeed;
+    [SerializeField] private float bulletSpawnPeriod;
 
     private RaycastHit _hit;
 
@@ -27,5 +28,6 @@ public partial class Player : MonoBehaviour
     private void FixedUpdate() 
     {
         Move();
+        TrySpawnBullet(Time.fixedDeltaTime);
     }
 }

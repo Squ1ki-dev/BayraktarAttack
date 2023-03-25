@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1735512382301326864}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: -4.17, z: 2.82}
+  m_LocalPosition: {x: 0, y: -4.17, z: 2.74}
   m_LocalScale: {x: 0.5, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -359,7 +359,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5006425137665278616}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.009, z: 0}
+  m_LocalPosition: {x: 0, y: -1.009, z: 0.02}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -489,7 +489,10 @@ MonoBehaviour:
   _bulletSpawnPoint: {fileID: 5006425137665278617}
   _bulletPrefab: {fileID: 1166948341298602614, guid: d37cbac667633eb41b5fdebe64392b23,
     type: 3}
-  _bulletSpeed: 0
+  _bulletSpeed: 5
+  bulletSpawnPeriod: 2
+  targetObj: {fileID: 6496286702547580473}
+  continuousFire: 0
 --- !u!136 &5006425138496282526
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -499,7 +502,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 5006425138496282471}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.3
   m_Height: 4.817141
   m_Direction: 1
@@ -598,6 +601,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4823597498580039894}
+  - component: {fileID: 2695001876920636072}
   m_Layer: 0
   m_Name: BAIRAKTAR_NW3
   m_TagString: Untagged
@@ -613,7 +617,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5312854422305579628}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0.02}
   m_LocalScale: {x: 0.25906736, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -622,6 +626,19 @@ Transform:
   m_Father: {fileID: 5006425138496282465}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2695001876920636072
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5312854422305579628}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5cfedf629308ba449d3e78116e4e312, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  floatingRange: 2
 --- !u!1 &5663548035571048730
 GameObject:
   m_ObjectHideFlags: 0
