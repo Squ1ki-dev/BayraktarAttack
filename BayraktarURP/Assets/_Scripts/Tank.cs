@@ -1,17 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
-public class Tank : MonoBehaviour
+[RequireComponent(typeof(NavMeshAgent))]
+public partial class Tank : MonoBehaviour
 {
-    private void OnTriggerEnter(Collider other) 
-    {
-        Bullet bullet = other.GetComponent<Bullet>();
+    public NavMeshAgent agent;
+    public float range; //radius of sphere
 
-        if(bullet)
-        {
-            SpawnEnemy.Instance.EnemyKilled++;
-            Destroy(gameObject);
-        }
+    public Transform centrePoint;
+
+    private void Awake()
+    {
+        agent = GetComponent<NavMeshAgent>();
+    }
+
+    private void Update()
+    {
+        MoveTank();
     }
 }

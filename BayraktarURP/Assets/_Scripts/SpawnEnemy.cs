@@ -8,7 +8,7 @@ public class SpawnEnemy : MonoBehaviour
 
     private int _waveNumber = 0;
     public int _spawnEnemyAmount = 0,
-               _maxEnemyAmount = 10,
+               _maxEnemyAmount,
                EnemyKilled = 0;
 
     [SerializeField] private GameObject _tankPrefab;
@@ -31,7 +31,7 @@ public class SpawnEnemy : MonoBehaviour
     private void Spawn()
     {
         int _spawnPos = Random.Range(0, _spawnPoints.Count);
-        Instantiate(_tankPrefab, _spawnPoints[_spawnPos].transform.position, _spawnPoints[_spawnPos].transform.rotation);
+        Instantiate(_tankPrefab, _spawnPoints[_spawnPos].transform.position, Quaternion.identity);
     }
 
     private void StartWave()
