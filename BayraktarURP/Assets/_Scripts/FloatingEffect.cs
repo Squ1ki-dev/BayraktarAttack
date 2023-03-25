@@ -1,18 +1,36 @@
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 
 public class FloatingEffect : MonoBehaviour
 {
     [SerializeField] private float floatingRange = 2;
-    Vector3 startPos;
+    float startPosY;
+    bool isFirstStep;
+    bool isStoped;
     private void Start()
     {
-        startPos = transform.position;
+        startPosY = transform.position.y;
         Animate();
     }
     private void Animate()
     {
-        transform.DOMove(startPos.WithY(startPos.y + Random.Range(-floatingRange, floatingRange)), Vector3.Distance(startPos, transform.position)).OnComplete(() => Animate());
+        if (isStoped) return;
+        isFirstStep = !isFirstStep;
+        transform.DOMoveY(startPosY + (isFirstStep ? floatingRange : -floatingRange), Mathf.Abs(startPosY - transform.position.y)).OnComplete(() => Animate());
+    }
+    public void Stop()
+    {
+        isStoped = true;
+        transform.DOKill();
+    }
+    public void Resume()
+    {
+        if (!isStoped)
+        {
+            isStoped = false;
+            Animate();
+        }
     }
 }
