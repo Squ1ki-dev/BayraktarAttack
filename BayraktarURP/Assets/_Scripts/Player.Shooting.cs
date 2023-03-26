@@ -34,8 +34,8 @@ public partial class Player
     }
     public void SpawnBullet()
     {
-
         var bulletInst = Instantiate(_bulletPrefab, _bulletSpawnPoint.position, transform.rotation);
-        bulletInst.GetComponent<Rigidbody>().velocity = _bulletSpawnPoint.position.Direction(targetObj.position) * _bulletSpeed;
+        // bulletInst.GetComponent<Rigidbody>().velocity = _bulletSpawnPoint.position.Direction(targetObj.position) * _bulletSpeed;
+        bulletInst.SetTarget(targetObj.position);
     }
 }

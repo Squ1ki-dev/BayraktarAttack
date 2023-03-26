@@ -11,7 +11,7 @@ public partial class Player : MonoBehaviour
     [SerializeField] private float _rotateSpeed;
 
     [SerializeField] private Transform _bulletSpawnPoint;
-    [SerializeField] private GameObject _bulletPrefab;
+    [SerializeField] private Bullet _bulletPrefab;
     [SerializeField] private float _bulletSpeed;
     [SerializeField] private float bulletSpawnPeriod;
 
