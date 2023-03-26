@@ -8,7 +8,7 @@ public class FloatingEffect : MonoBehaviour
     [SerializeField] private float floatingRange = 2;
     float startPosY;
     bool isFirstStep;
-    bool isStoped;
+
     private void Start()
     {
         startPosY = transform.position.y;
@@ -16,21 +16,17 @@ public class FloatingEffect : MonoBehaviour
     }
     private void Animate()
     {
-        if (isStoped) return;
         isFirstStep = !isFirstStep;
         transform.DOMoveY(startPosY + (isFirstStep ? floatingRange : -floatingRange), Mathf.Abs(startPosY - transform.position.y)).OnComplete(() => Animate());
     }
+
     public void Stop()
     {
-        isStoped = true;
         transform.DOKill();
     }
+    
     public void Resume()
     {
-        if (!isStoped)
-        {
-            isStoped = false;
-            Animate();
-        }
+        Animate();
     }
 }
