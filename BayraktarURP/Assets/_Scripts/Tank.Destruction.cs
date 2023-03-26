@@ -11,6 +11,7 @@ public partial class Tank
         if(bullet)
         {
             SpawnEnemy.Instance.EnemyKilled++;
+            Instantiate(_boomParticle, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
     }

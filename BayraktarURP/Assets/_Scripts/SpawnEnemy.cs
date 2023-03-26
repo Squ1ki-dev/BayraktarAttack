@@ -7,8 +7,9 @@ public class SpawnEnemy : MonoBehaviour
     public static SpawnEnemy Instance;
 
     private int _waveNumber = 0;
-    public int _spawnEnemyAmount = 0,
-               _maxEnemyAmount,
+    private int _spawnEnemyAmount = 0;
+    
+    public int _maxEnemyAmount,
                EnemyKilled = 0;
 
     [SerializeField] private GameObject _tankPrefab;
