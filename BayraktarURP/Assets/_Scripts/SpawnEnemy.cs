@@ -7,9 +7,8 @@ public class SpawnEnemy : MonoBehaviour
     public static SpawnEnemy Instance;
 
     private int _waveNumber = 0;
-    private int _spawnEnemyAmount = 0;
-    
-    public int _maxEnemyAmount,
+    public int _spawnEnemyAmount = 0,
+               _maxEnemyAmount,
                EnemyKilled = 0;
 
     [SerializeField] private GameObject _tankPrefab;
@@ -38,7 +37,7 @@ public class SpawnEnemy : MonoBehaviour
     private void StartWave()
     {
         _waveNumber = 1;
-        _spawnEnemyAmount = 4;
+        _spawnEnemyAmount = 2;
         LoopSpawn();
     }
 
