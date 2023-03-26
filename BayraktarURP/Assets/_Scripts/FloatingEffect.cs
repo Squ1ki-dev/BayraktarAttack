@@ -6,31 +6,29 @@ using UnityEngine;
 public class FloatingEffect : MonoBehaviour
 {
     [SerializeField] private float floatingRange = 2;
-    float startPosY;
+    [SerializeField] private float speed = 1;
+    // float startPosY;
+    float minY, maxY, targetY;
     bool isFirstStep;
-    bool isStoped;
     private void Start()
     {
-        startPosY = transform.position.y;
-        Animate();
+        // startPosY = transform.position.y;
+        minY =  transform.position.y - floatingRange;
+        maxY =  transform.position.y + floatingRange;
+        // Animate();
     }
-    private void Animate()
+    private void FixedUpdate()
     {
-        if (isStoped) return;
-        isFirstStep = !isFirstStep;
-        transform.DOMoveY(startPosY + (isFirstStep ? floatingRange : -floatingRange), Mathf.Abs(startPosY - transform.position.y)).OnComplete(() => Animate());
+        if(transform.position.y > maxY)  targetY = minY;
+        else if(transform.position.y < minY) targetY = maxY;
+        transform.MoveToTarget(transform.position.WithY(targetY), Time.fixedDeltaTime * speed);
     }
-    public void Stop()
-    {
-        isStoped = true;
-        transform.DOKill();
-    }
-    public void Resume()
-    {
-        if (!isStoped)
-        {
-            isStoped = false;
-            Animate();
-        }
-    }
+    // private void Animate()
+    // {
+    //     isFirstStep = !isFirstStep;
+    //     transform.DOMoveY(startPosY + (isFirstStep ? floatingRange : -floatingRange), Mathf.Abs(startPosY - transform.position.y) / speed).OnComplete(() => Animate());
+    // }
+    // public void Stop() => transform.DOKill();
+
+    // public void Resume() => Animate();
 }
