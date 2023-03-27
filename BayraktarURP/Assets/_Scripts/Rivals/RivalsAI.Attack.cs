@@ -4,24 +4,6 @@ using UnityEngine;
 
 public partial class RivalsAI
 {
-    // private void AttackTarget()
-    // {
-    //     agent.SetDestination(transform.position);
-
-    //     transform.LookAt(tank);
-
-    //     if (!alreadyAttacked)
-    //     {
-    //         ///Attack code here
-    //         Rigidbody rb = Instantiate(_bulletPrefab, transform.position, transform.rotation).GetComponent<Rigidbody>();
-    //         rb.AddForce(transform.forward * 32f, ForceMode.Impulse);
-    //         rb.AddForce(transform.up * 8f, ForceMode.Impulse);
-
-    //         alreadyAttacked = true;
-    //         Invoke(nameof(ResetAttack), _timeBetweenAttacks);
-    //     }
-    // }
-
     private void AttackTarget()
     {
         // Make sure enemy doesn't move
