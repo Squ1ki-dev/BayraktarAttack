@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7598657984667561449}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 7454198495380615470}
   - component: {fileID: 2662930164434937385}
   - component: {fileID: 4774282691656192375}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: EnemyTank
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -146,7 +146,7 @@ GameObject:
   - component: {fileID: 3854443422575584578}
   - component: {fileID: 203330805328145127}
   - component: {fileID: 2681496670195850797}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Tank
   m_TagString: Enemy
   m_Icon: {fileID: 0}
