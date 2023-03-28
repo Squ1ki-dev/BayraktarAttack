@@ -6,10 +6,13 @@ using UnityEngine;
 public partial class PlayerController : MonoBehaviour
 {
     [SerializeField] private Joystick _joystick;
+    [SerializeField] private bool continuousFire = false;
     [SerializeField] private Dron dron;
     private void FixedUpdate()
     {
         dron.Move(_joystick.Direction);
-        dron.TrySpawnBullet(Time.fixedDeltaTime);
+        
+        if (continuousFire) dron.Shoot();
+        else dron.ShootIfHasTarget<Tank>(Time.fixedDeltaTime);
     }
 }

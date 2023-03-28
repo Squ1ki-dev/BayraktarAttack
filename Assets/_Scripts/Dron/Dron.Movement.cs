@@ -4,14 +4,14 @@ using UnityEngine;
 
 public partial class Dron
 {
-    [SerializeField] private float _moveSpeed;
+    [field: SerializeField] public float MoveSpeed { get; private set; }
     [SerializeField] private float _rotateSpeed;
     private Vector3 _moveVector;
     public void Move(Vector2 moveDirection)
     {
         _moveVector = Vector3.zero;
-        _moveVector.x = moveDirection.x * _moveSpeed * Time.fixedDeltaTime;
-        _moveVector.z = moveDirection.y * _moveSpeed * Time.fixedDeltaTime;
+        _moveVector.x = moveDirection.x * MoveSpeed * Time.fixedDeltaTime;
+        _moveVector.z = moveDirection.y * MoveSpeed * Time.fixedDeltaTime;
 
         if (moveDirection.x != 0 || moveDirection.y != 0)
         {
@@ -19,6 +19,6 @@ public partial class Dron
             transform.rotation = Quaternion.LookRotation(direction);
         }
 
-        if (moveDirection != Vector2.zero) _rigidbody.MovePosition(_rigidbody.position + (transform.forward * _moveSpeed * Time.fixedDeltaTime)); //* ((_joystick.Horizontal + _joystick.Vertical) / 2)));
+        if (moveDirection != Vector2.zero) _rigidbody.MovePosition(_rigidbody.position + (transform.forward * MoveSpeed * Time.fixedDeltaTime)); //* ((_joystick.Horizontal + _joystick.Vertical) / 2)));
     }
 }

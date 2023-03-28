@@ -10,10 +10,10 @@ public enum EnemyState
 
 public partial class RivalsAI : MonoBehaviour
 {
-    public EnemyState state;
-
+    public EnemyState currentState;
+    [SerializeField] private Dron dron;
     [SerializeField] private NavMeshAgent agent;
-    [SerializeField] private Transform tank;
+    private Transform targetForAttack;
     [SerializeField] private LayerMask whatIsGround, whatIsTarget;
 
     [Header("Patroling")]
@@ -24,27 +24,26 @@ public partial class RivalsAI : MonoBehaviour
     [Header("Attacking")]
     private bool alreadyAttacked;
     [SerializeField] private float _timeBetweenAttacks;
-    [SerializeField] private GameObject _bulletPrefab;
+    [SerializeField] private Bullet _bulletPrefab;
 
     [Header("States")]
     [SerializeField] private float _sightRange, _attackRange;
-    [SerializeField] private bool _targetInSightRange, _targetInAttackRange;
 
     private void Awake()
     {
         Transform tank = transform;
         agent = GetComponent<NavMeshAgent>();
-        state = EnemyState.Patroling;
+        agent.speed = dron.MoveSpeed;
     }
 
-    private void Update() => TargetInRange();
-
-    private void TargetInRange()
+    private void Update()
     {
-        _targetInSightRange = Physics.CheckSphere(transform.position, _sightRange, whatIsTarget);
-        _targetInAttackRange = Physics.CheckSphere(transform.position, _attackRange, whatIsTarget);
-
-        switch(state)
+        UpdateState();
+        Move();
+    }
+    private void Move()
+    {
+        switch (currentState)
         {
             case EnemyState.Patroling:
                 Patroling();
@@ -56,17 +55,17 @@ public partial class RivalsAI : MonoBehaviour
                 AttackTarget();
                 break;
         }
-
-        if (_targetInSightRange)
-        {
-            state = EnemyState.Chasing;
-            if (_targetInAttackRange)
-                state = EnemyState.Attacking;
-        }
-        else
-            state = EnemyState.Patroling;
     }
+    private void UpdateState()
+    {
+        RaycastHit hit;
+        Physics.SphereCast(transform.position, _attackRange, Vector3.zero, out hit, whatIsTarget);
+        targetForAttack = hit.transform;
+        bool targetInSightRange = Physics.CheckSphere(transform.position, _sightRange, whatIsTarget);
+        bool targetInAttackRange = targetForAttack != null;
 
+        currentState = targetInSightRange ? (targetInAttackRange ? EnemyState.Attacking : EnemyState.Chasing) : EnemyState.Patroling;
+    }
 
     private void OnDrawGizmosSelected()
     {

@@ -9,23 +9,22 @@ public partial class RivalsAI
         if (!walkPointSet) SearchWalkPoint();
 
         if (walkPointSet)
+        {
+            // dron.Move(transform.position.Direction(_walkPoint));
             agent.SetDestination(_walkPoint);
-
-        Vector3 distanceToWalkPoint = transform.position - _walkPoint;
-
-        //Walkpoint reached
-        if (distanceToWalkPoint.magnitude < 1f)
+        }
+            
+        if (Vector3.Distance(transform.position, _walkPoint) < 1f)
             walkPointSet = false;
     }
 
     private void SearchWalkPoint()
     {
-        //Calculate random point in range
+        _walkPoint = RandomTools.GetRandomPointInRange(transform.position, _walkPointRange, useY: false);// new Vector3(transform.position.x + randomX, transform.position.y, transform.position.z + randomZ);
 
-        _walkPoint = RandomTools.GetRandomPointInSphere(transform.position, _walkPointRange, useY: false);// new Vector3(transform.position.x + randomX, transform.position.y, transform.position.z + randomZ);
-
-        if (Physics.Raycast(_walkPoint, -transform.up, 2f, whatIsGround))
+        if (!HasGrount())
             walkPointSet = true;
     }
-    private void ChaseTarget() => agent.SetDestination(tank.position);
+    private bool HasGrount() => Physics.Raycast(_walkPoint, -transform.up, Mathf.Infinity, whatIsGround);
+    private void ChaseTarget() => agent.SetDestination(targetForAttack.position);
 }
