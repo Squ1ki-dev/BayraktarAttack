@@ -380,6 +380,7 @@ GameObject:
   - component: {fileID: 5006425138496282469}
   - component: {fileID: 5006425138496282468}
   - component: {fileID: 5006425138496282526}
+  - component: {fileID: 6408873929461549355}
   m_Layer: 0
   m_Name: Dron
   m_TagString: Untagged
@@ -483,15 +484,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _joystick: {fileID: 0}
-  _moveSpeed: 5
-  _rotateSpeed: 5
-  _bulletSpawnPoint: {fileID: 5006425137665278617}
-  _bulletPrefab: {fileID: 1166948341298602614, guid: d37cbac667633eb41b5fdebe64392b23,
-    type: 3}
-  _bulletSpeed: 5
-  bulletSpawnPeriod: 2
-  targetObj: {fileID: 6496286702547580473}
-  continuousFire: 0
+  dron: {fileID: 6408873929461549355}
 --- !u!136 &5006425138496282526
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -506,6 +499,26 @@ CapsuleCollider:
   m_Height: 4.817141
   m_Direction: 1
   m_Center: {x: 0, y: -1.9085705, z: 0}
+--- !u!114 &6408873929461549355
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5006425138496282471}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c01757b0cc81785429ded7d0abf00369, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _moveSpeed: 9
+  _rotateSpeed: 9
+  targetObj: {fileID: 0}
+  continuousFire: 0
+  _bulletSpawnPoint: {fileID: 0}
+  _bulletPrefab: {fileID: 0}
+  _bulletSpeed: 1
+  bulletSpawnPeriod: 1
 --- !u!1 &5212822044427585385
 GameObject:
   m_ObjectHideFlags: 0

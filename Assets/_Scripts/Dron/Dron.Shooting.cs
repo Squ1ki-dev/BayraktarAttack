@@ -11,6 +11,8 @@ public partial class Dron
     [SerializeField] private float _bulletSpeed;
     [SerializeField] private float bulletSpawnPeriod;
     float period = 0;
+    private RaycastHit _hit;
+    
     public bool TrySpawnBullet(float deltaTime)
     {
         if (period > 0)

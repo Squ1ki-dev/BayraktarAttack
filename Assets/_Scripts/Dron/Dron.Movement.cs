@@ -2,16 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public partial class Dron : MonoBehaviour
+public partial class Dron
 {
-    
-    private void Awake()
-    {
-        _rigidbody = GetComponent<Rigidbody>();
-    }
-    private RaycastHit _hit;
-
-    private Rigidbody _rigidbody;
     [SerializeField] private float _moveSpeed;
     [SerializeField] private float _rotateSpeed;
     private Vector3 _moveVector;
