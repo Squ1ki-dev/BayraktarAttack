@@ -39,7 +39,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.16443342, g: 0.34302312, b: 0.47605336, a: 1}
+  m_IndirectSpecularColor: {r: 0.16468532, g: 0.34331265, b: 0.47358194, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -739,6 +739,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!4 &594991361 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2351503431605470368, guid: db30d1c5e84f34148961210ea5f77528,
+    type: 3}
+  m_PrefabInstance: {fileID: 839033344}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &681176913
 GameObject:
   m_ObjectHideFlags: 0
@@ -1011,6 +1017,75 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0d230cc8be529a542a08cb878ab14b18, type: 3}
+--- !u!1001 &839033344
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 2071030858}
+    m_Modifications:
+    - target: {fileID: 2351503431605470368, guid: db30d1c5e84f34148961210ea5f77528,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2351503431605470368, guid: db30d1c5e84f34148961210ea5f77528,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2351503431605470368, guid: db30d1c5e84f34148961210ea5f77528,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -13.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2351503431605470368, guid: db30d1c5e84f34148961210ea5f77528,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2351503431605470368, guid: db30d1c5e84f34148961210ea5f77528,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2351503431605470368, guid: db30d1c5e84f34148961210ea5f77528,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2351503431605470368, guid: db30d1c5e84f34148961210ea5f77528,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2351503431605470368, guid: db30d1c5e84f34148961210ea5f77528,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2351503431605470368, guid: db30d1c5e84f34148961210ea5f77528,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2351503431605470368, guid: db30d1c5e84f34148961210ea5f77528,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2351503431605470368, guid: db30d1c5e84f34148961210ea5f77528,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3164314497049730586, guid: db30d1c5e84f34148961210ea5f77528,
+        type: 3}
+      propertyPath: m_Name
+      value: City
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: db30d1c5e84f34148961210ea5f77528, type: 3}
 --- !u!1 &854696841
 GameObject:
   m_ObjectHideFlags: 3
@@ -1392,7 +1467,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -2075,6 +2150,7 @@ Transform:
   m_Children:
   - {fileID: 327717405}
   - {fileID: 1444611703}
+  - {fileID: 594991361}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
