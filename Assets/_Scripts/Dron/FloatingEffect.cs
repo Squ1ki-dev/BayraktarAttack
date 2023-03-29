@@ -13,15 +13,15 @@ public class FloatingEffect : MonoBehaviour
     private void Start()
     {
         // startPosY = transform.position.y;
-        minY =  transform.position.y - floatingRange;
-        maxY =  transform.position.y + floatingRange;
+        minY =  transform.localPosition.y - floatingRange;
+        maxY =  transform.localPosition.y + floatingRange;
         // Animate();
     }
     private void FixedUpdate()
     {
-        if(transform.position.y > maxY)  targetY = minY;
-        else if(transform.position.y < minY) targetY = maxY;
-        transform.MoveToTarget(transform.position.WithY(targetY), Time.fixedDeltaTime * speed);
+        if(transform.localPosition.y > maxY)  targetY = minY;
+        else if(transform.localPosition.y < minY) targetY = maxY;
+        transform.MoveToTarget(transform.localPosition.WithY(targetY), Time.fixedDeltaTime * speed);
     }
     // private void Animate()
     // {

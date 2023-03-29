@@ -6,25 +6,19 @@ public partial class RivalsAI
 {
     private void Patroling()
     {
-        if (!walkPointSet) SearchWalkPoint();
+        if (!walkPointSeted) SearchWalkPoint();
 
-        if (walkPointSet)
-        {
-            // dron.Move(transform.position.Direction(_walkPoint));
-            agent.SetDestination(_walkPoint);
-        }
-            
-        if (Vector3.Distance(transform.position, _walkPoint) < 1f)
-            walkPointSet = false;
+        if (walkPointSeted) MoveDroneToTarget(currentWalkPoint);
+
+        if (Vector3.Distance(transform.position, currentWalkPoint) < 1f)
+            walkPointSeted = false;
     }
-
     private void SearchWalkPoint()
     {
-        _walkPoint = RandomTools.GetRandomPointInRange(transform.position, _walkPointRange, useY: false);// new Vector3(transform.position.x + randomX, transform.position.y, transform.position.z + randomZ);
+        currentWalkPoint = RandomTools.GetRandomPointInRange(transform.position, settings.walkRange, useY: false);
 
         if (!HasGrount())
-            walkPointSet = true;
+            walkPointSeted = true;
     }
-    private bool HasGrount() => Physics.Raycast(_walkPoint, -transform.up, Mathf.Infinity, whatIsGround);
-    private void ChaseTarget() => agent.SetDestination(targetForAttack.position);
+    private bool HasGrount() => Physics.Raycast(currentWalkPoint, -transform.up, Mathf.Infinity, settings.whatIsGround);
 }

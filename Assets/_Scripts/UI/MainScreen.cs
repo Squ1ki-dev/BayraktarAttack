@@ -6,11 +6,10 @@ using UnityEngine.UI;
 
 public class MainScreen : AnimatedWindowBase
 {
-    [SerializeField] private Button btnShop;
+    [SerializeField] private Button playBtn;
 
     public void Show()
     {
-        Debug.Log("HUOIO");
-        //btnShop.OnClick();
+        playBtn.OnClick(() => GameSession.Instance.StartGame());
     }
 }

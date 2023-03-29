@@ -7,40 +7,30 @@ public enum EnemyState
     Chasing,
     Attacking
 }
-
-public partial class RivalsAI : MonoBehaviour
+public struct RivalsAISettings
+{
+    public LayerMask whatIsGround, whatIsTarget;
+    public float walkRange, _sightRange, _attackRange;
+}
+public partial class RivalsAI
 {
     public EnemyState currentState;
-    [SerializeField] private Dron dron;
-    [SerializeField] private NavMeshAgent agent;
+    private Dron dron;
     private Transform targetForAttack;
-    [SerializeField] private LayerMask whatIsGround, whatIsTarget;
+    private bool walkPointSeted;
+    private Vector3 currentWalkPoint;
+    Transform transform => dron.transform;
+    RivalsAISettings settings;
+    public void SetDrone(Dron drone) => this.dron = drone;
 
-    [Header("Patroling")]
-    private bool walkPointSet;
-    private Vector3 _walkPoint;
-    [SerializeField] private float _walkPointRange;
+    public void SetSettings(RivalsAISettings settings) => this.settings = settings;
 
-    [Header("Attacking")]
-    private bool alreadyAttacked;
-    [SerializeField] private float _timeBetweenAttacks;
-    [SerializeField] private Bullet _bulletPrefab;
-
-    [Header("States")]
-    [SerializeField] private float _sightRange, _attackRange;
-
-    private void Awake()
-    {
-        Transform tank = transform;
-        agent = GetComponent<NavMeshAgent>();
-        agent.speed = dron.MoveSpeed;
-    }
-
-    private void Update()
+    public void Update()
     {
         UpdateState();
         Move();
     }
+
     private void Move()
     {
         switch (currentState)
@@ -56,12 +46,15 @@ public partial class RivalsAI : MonoBehaviour
                 break;
         }
     }
+    
+    private void MoveDroneToTarget(Vector3 target) => dron.Move(transform.position.Direction(target));
+
     private void UpdateState()
     {
         RaycastHit hit;
-        Physics.SphereCast(transform.position, _attackRange, Vector3.zero, out hit, whatIsTarget);
+        Physics.SphereCast(transform.position, settings._attackRange, Vector3.zero, out hit, settings.whatIsTarget);
         targetForAttack = hit.transform;
-        bool targetInSightRange = Physics.CheckSphere(transform.position, _sightRange, whatIsTarget);
+        bool targetInSightRange = Physics.CheckSphere(transform.position, settings._sightRange, settings.whatIsTarget);
         bool targetInAttackRange = targetForAttack != null;
 
         currentState = targetInSightRange ? (targetInAttackRange ? EnemyState.Attacking : EnemyState.Chasing) : EnemyState.Patroling;
@@ -70,8 +63,8 @@ public partial class RivalsAI : MonoBehaviour
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, _attackRange);
+        Gizmos.DrawWireSphere(transform.position, settings._attackRange);
         Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position, _sightRange);
+        Gizmos.DrawWireSphere(transform.position, settings._sightRange);
     }
 }

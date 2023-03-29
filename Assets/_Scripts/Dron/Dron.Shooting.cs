@@ -11,14 +11,13 @@ public partial class Dron
     [SerializeField] private float bulletSpawnPeriod;
     float period = 0;
     private RaycastHit _hit;
-    
-    public bool ShootIfHasTarget<T>(float deltaTime)
+    private bool alreadyAttacked;
+
+    public bool ShootIfHasTarget<T>()
     {
-        if (period > 0)
-        {
-            period -= deltaTime;
-            return false;
-        }
+        if (!alreadyAttacked) return false;
+        Invoke(nameof(Recharge), period);
+
         period = bulletSpawnPeriod;
         RaycastHit hit;
         if (Physics.Raycast(_bulletSpawnPoint.position, _bulletSpawnPoint.position.Direction(targetObj.position), out hit, Mathf.Infinity))
@@ -34,8 +33,12 @@ public partial class Dron
     }
     public void Shoot()
     {
+        if (!alreadyAttacked) return;
+        Invoke(nameof(Recharge), period);
+
         var bulletInst = Instantiate(_bulletPrefab, _bulletSpawnPoint.position, transform.rotation);
         // bulletInst.GetComponent<Rigidbody>().velocity = _bulletSpawnPoint.position.Direction(targetObj.position) * _bulletSpeed;
         bulletInst.SetTarget(targetObj.position);
     }
+    private void Recharge() => alreadyAttacked = false;
 }

@@ -3,16 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
-public partial class PlayerController : MonoBehaviour
+public partial class PlayerController
 {
-    [SerializeField] private Joystick _joystick;
-    [SerializeField] private bool continuousFire = false;
-    [SerializeField] private Dron dron;
-    private void FixedUpdate()
+    public PlayerController(Joystick joystick, Dron drone)
     {
-        dron.Move(_joystick.Direction);
-        
-        if (continuousFire) dron.Shoot();
-        else dron.ShootIfHasTarget<Tank>(Time.fixedDeltaTime);
+        this.joystick = joystick;
+        this.drone = drone;
+    }
+    private Dron drone;
+    private Joystick joystick;
+    public void Update()
+    {
+        drone.Move(joystick.Direction);
+        drone.ShootIfHasTarget<Tank>();
     }
 }
