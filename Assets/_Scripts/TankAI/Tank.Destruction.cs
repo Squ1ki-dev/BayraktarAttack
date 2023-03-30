@@ -1,18 +1,27 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Tools;
 using UnityEngine;
+using UnityEngine.Events;
 
 public partial class Tank
 {
-    private void OnTriggerEnter(Collider other) 
+    public UnityEvent<Tank> onLife = new();
+    public bool IsDead { get; private set; }
+    public void Kill()
     {
-        Bullet bullet = other.GetComponent<Bullet>();
-        
-        if(bullet)
+        boomParticle.Play();
+        firePart.Play();
+        IsDead = true;
+        agent.updatePosition = false;
+        this.Wait(boomParticle.main.duration, () =>
         {
-            SpawnEnemy.Instance.EnemyKilled++;
-            Instantiate(_boomParticle, transform.position, Quaternion.identity);
-            Destroy(gameObject);
-        }
+            onLife.Invoke(this);
+            firePart.Stop();
+            agent.updatePosition = true;
+            IsDead = false;
+        });
+
     }
 }

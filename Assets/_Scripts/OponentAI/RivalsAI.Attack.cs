@@ -8,8 +8,6 @@ public partial class RivalsAI
     {
         if (targetForAttack == null) return;
         MoveDroneToTarget(transform.position);
-        dron.ShootIfHasTarget<Tank>();
+        dron.ShootIfHasTarget<Tank>(tank => model.Scores.value++);
     }
-    private void ChaseTarget() => MoveDroneToTarget(targetForAttack.position);
-
 }

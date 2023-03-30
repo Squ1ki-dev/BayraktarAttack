@@ -313,7 +313,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 80aec2e7328a6ef448c63ebdc5e4c829, type: 2}
+  - {fileID: 2100000, guid: c4be26b493d562c499fcdcda692eb342, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -381,7 +381,7 @@ GameObject:
   - component: {fileID: 5006425138496282526}
   - component: {fileID: 6408873929461549355}
   m_Layer: 0
-  m_Name: Dron
+  m_Name: Dron2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -503,7 +503,6 @@ MonoBehaviour:
   _bulletSpawnPoint: {fileID: 5006425137665278617}
   _bulletPrefab: {fileID: 1855040610532505374, guid: d37cbac667633eb41b5fdebe64392b23,
     type: 3}
-  _bulletSpeed: 5
   bulletSpawnPeriod: 1
 --- !u!1 &5212822044427585385
 GameObject:

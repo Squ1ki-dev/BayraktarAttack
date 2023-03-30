@@ -6,19 +6,13 @@ public partial class RivalsAI
 {
     private void Patroling()
     {
-        if (!walkPointSeted) SearchWalkPoint();
+        if (!GameTools.HasGrount(currentWalkPoint, GameConfigs.Instance.settings.rivalsAISettings.whatIsGround))
+            SearchNewWalkPoint();
 
-        if (walkPointSeted) MoveDroneToTarget(currentWalkPoint);
+        MoveDroneToTarget(currentWalkPoint);
 
-        if (Vector3.Distance(transform.position, currentWalkPoint) < 1f)
-            walkPointSeted = false;
+        if (Vector3.Distance(transform.position, currentWalkPoint) < 2f)
+            SearchNewWalkPoint();
     }
-    private void SearchWalkPoint()
-    {
-        currentWalkPoint = RandomTools.GetRandomPointInRange(transform.position, settings.walkRange, useY: false);
-
-        if (!HasGrount())
-            walkPointSeted = true;
-    }
-    private bool HasGrount() => Physics.Raycast(currentWalkPoint, -transform.up, Mathf.Infinity, settings.whatIsGround);
+    private void SearchNewWalkPoint() => currentWalkPoint = RandomTools.GetRandomPointInRange(centrePoint, settings.walkRange, useY: false).WithY(transform.position.y);
 }

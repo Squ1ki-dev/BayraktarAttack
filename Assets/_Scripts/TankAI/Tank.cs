@@ -11,7 +11,7 @@ public partial class Tank : MonoBehaviour
 
     public Transform centrePoint;
 
-    [SerializeField] private GameObject _boomParticle;
+    [SerializeField] private ParticleSystem boomParticle, firePart;
 
     private void Awake()
     {

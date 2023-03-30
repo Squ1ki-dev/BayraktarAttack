@@ -5,16 +5,21 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public partial class PlayerController
 {
-    public PlayerController(Joystick joystick, Dron drone)
+    public PlayerController(Joystick joystick, Dron drone, PlayerModel model)
     {
         this.joystick = joystick;
         this.drone = drone;
+        this.model = model;
     }
-    private Dron drone;
+    public Dron drone { get; private set; }
+    public PlayerModel model { get; private set; }
     private Joystick joystick;
     public void Update()
     {
-        drone.Move(joystick.Direction);
-        drone.ShootIfHasTarget<Tank>();
+        drone.Move(new Vector3(joystick.Direction.x, 0, joystick.Direction.y));
+        drone.ShootIfHasTarget<Tank>(onHit: tank =>
+        {
+            model.Scores.value++;
+        });
     }
 }
