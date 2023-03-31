@@ -7,11 +7,11 @@ using UnityEngine;
 public class GameScreen : WindowBase
 {
     [field: SerializeField] public Joystick joystick { get; private set; }
-    [SerializeField] private TextMeshProUGUI scores;
+    [SerializeField] private TextMeshProUGUI timer;
     [SerializeField] private PlayersTopView top;
-    public void Show(PlayerModel player, List<PlayerModel> oponents)
+    public void Show(PlayerModel player, List<PlayerModel> oponents, GameModel gameModel)
     {
-        player.Scores.SubscribeAndInvoke(value => scores.text = value.ToString());
+        gameModel.TimeToEnd.SubscribeAndInvoke(value => timer.text = value.ToString());
         top.Present(oponents, player);
     }
 }

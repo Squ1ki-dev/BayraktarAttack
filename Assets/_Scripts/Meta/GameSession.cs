@@ -12,7 +12,6 @@ public enum GameScenes
 
 public class GameSession : Singleton<GameSession>
 {
-    public GameModel currentGame;
     public bool isFirstSession
     {
         get { return !PlayerPrefsPro.Get<bool>(nameof(isFirstSession)); }
@@ -27,17 +26,16 @@ public class GameSession : Singleton<GameSession>
     }
     public void StartGame()
     {
-        currentGame = new GameModel();
         WindowManager.Instance.CloseAll();
         LoadScene(GameScenes.GameScene);
     }
     private void LoadScene(GameScenes scene)
     {
+        WindowManager.Instance.CloseAll();
         SceneManager.LoadScene(scene.ToString());
     }
-    public void EndGame()
+    public void EndGame(GameModel model)
     {
-        currentGame = null;
         LoadScene(GameScenes.MenuScene);
     }
 }

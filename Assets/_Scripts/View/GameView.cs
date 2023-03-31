@@ -43,10 +43,12 @@ public class GameView : MonoBehaviour
             targets.Add(CreateRandomTarget(GetRandomPointInMap()));
             targets.Last().onLife.AddListener(target =>
             {
-                target.agent.Warp(GetRandomPointInMap()) ;
+                target.agent.Warp(GetRandomPointInMap());
             });
         }
-        gameScreen.Show(playerController.model, oponentAIs.Select(ai => ai.model).ToList());
+        GameModel gameModel = new GameModel();
+        gameScreen.Show(playerController.model, oponentAIs.Select(ai => ai.model).ToList(), gameModel);
+        gameModel.Start(GameConfigs.Instance.settings.gameSessionDuration, playerController.model, oponentAIs.Select(ai => ai.model).ToList());
     }
     public static RivalsAI CreateRandomAI(Vector3 centrePosition, Vector3 position)
     {
