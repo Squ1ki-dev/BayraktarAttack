@@ -10,7 +10,7 @@ public enum EnemyState
 public struct RivalsAISettings
 {
     public LayerMask whatIsGround, whatIsTarget;
-    public float walkRange, _attackRange;
+    public float walkRange, attackRange;
 }
 public partial class RivalsAI
 {
@@ -52,9 +52,17 @@ public partial class RivalsAI
 
     private void UpdateState()
     {
-        RaycastHit hit;
-        Physics.SphereCast(transform.position, settings._attackRange, Vector3.zero, out hit, settings.whatIsTarget);
-        targetForAttack = hit.transform;
+        foreach (var hit in Physics.OverlapSphere(transform.position, settings.attackRange, settings.whatIsTarget))
+        {
+            targetForAttack = hit.transform;
+            break;
+        }
+
+        // RaycastHit hit;
+        // Physics.SphereCast(transform.position, settings._attackRange, Vector3.zero, out hit, settings.whatIsTarget);
+
+        // Physics.CheckSphere(transform.position, settings.attackRange, settings.whatIsTarget);
+
         bool targetInAttackRange = targetForAttack != null;
 
         currentState = targetInAttackRange ? EnemyState.Attacking : EnemyState.Patroling;
@@ -63,6 +71,6 @@ public partial class RivalsAI
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, settings._attackRange);
+        Gizmos.DrawWireSphere(transform.position, settings.attackRange);
     }
 }

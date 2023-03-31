@@ -29,6 +29,7 @@ public class Bullet : MonoBehaviour
         if(tank && !tank.IsDead) 
         {
             tank.Kill();
+            onHit?.Invoke(tank);
             Destroy(gameObject);
         }
     }

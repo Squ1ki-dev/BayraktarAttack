@@ -498,12 +498,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   view: {fileID: 4823597498580039894}
   <MoveSpeed>k__BackingField: 9
-  _rotateSpeed: 9
+  _rotateSpeed: 5
   targetObj: {fileID: 6496286702547580473}
   _bulletSpawnPoint: {fileID: 5006425137665278617}
   _bulletPrefab: {fileID: 1855040610532505374, guid: d37cbac667633eb41b5fdebe64392b23,
     type: 3}
-  _bulletSpeed: 5
   bulletSpawnPeriod: 1
 --- !u!1 &5212822044427585385
 GameObject:

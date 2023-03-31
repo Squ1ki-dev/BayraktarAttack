@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: GameSettings
   m_EditorClassIdentifier: Assembly-CSharp::GameSettings
   maxOponentsInScene: 5
-  maxTargetsInScene: 10
+  maxTargetsInScene: 50
   rivalsAISettings:
     whatIsGround:
       serializedVersion: 2
@@ -22,4 +22,14 @@ MonoBehaviour:
       serializedVersion: 2
       m_Bits: 64
     walkRange: 50
-    _attackRange: 10
+    attackRange: 10
+  oponentNames:
+  - Harry Potter
+  - Enotik
+  - UKRAINE
+  - USA
+  - UK
+  - MoRoZoK
+  - IceGaming
+  - Pety
+  - Volan de mort

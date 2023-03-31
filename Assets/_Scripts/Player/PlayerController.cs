@@ -17,9 +17,6 @@ public partial class PlayerController
     public void Update()
     {
         drone.Move(new Vector3(joystick.Direction.x, 0, joystick.Direction.y));
-        drone.ShootIfHasTarget<Tank>(onHit: tank =>
-        {
-            model.Scores.value++;
-        });
+        drone.ShootIfHasTarget(onHit: tank => model.Scores.value++);
     }
 }

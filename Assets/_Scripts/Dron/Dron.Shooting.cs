@@ -13,7 +13,7 @@ public partial class Dron
     private RaycastHit _hit;
     private bool readyForAttack = true;
 
-    public bool ShootIfHasTarget<T>(Action<T> onHit = null)
+    public bool ShootIfHasTarget(Action<Tank> onHit = null)
     {
         if (!readyForAttack) return false;
 
@@ -21,14 +21,12 @@ public partial class Dron
         RaycastHit hit;
         if (Physics.Raycast(_bulletSpawnPoint.position, _bulletSpawnPoint.position.Direction(targetObj.position), out hit, Mathf.Infinity))
         {
-            var tank = hit.transform.GetComponent<T>();
+            var tank = hit.transform.GetComponent<Tank>();
             if (tank != null)
             {
-                Shoot(transform =>
+                Shoot(tank =>
                 {
-                    var hitedTarget = transform.GetComponent<T>();
-                    if (hitedTarget != null)
-                        onHit.Invoke(hitedTarget);
+                    onHit.Invoke(tank);
                 });
                 return true;
             }

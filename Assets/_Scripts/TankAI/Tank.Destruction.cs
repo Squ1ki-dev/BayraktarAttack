@@ -15,11 +15,13 @@ public partial class Tank
         firePart.Play();
         IsDead = true;
         agent.updatePosition = false;
+        agent.updateRotation = false;
         this.Wait(boomParticle.main.duration, () =>
         {
             onLife.Invoke(this);
             firePart.Stop();
             agent.updatePosition = true;
+            agent.updateRotation = true;
             IsDead = false;
         });
 

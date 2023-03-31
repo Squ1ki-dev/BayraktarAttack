@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Cinemachine;
 using Tools;
 using UnityEngine;
@@ -29,7 +30,8 @@ public class GameView : MonoBehaviour
     }
     public void Start()
     {
-        playerController = CreatePlayer(GetRandomPointInMap());
+        var gameScreen = WindowManager.Instance.Show<GameScreen>();
+        playerController = CreatePlayer(GetRandomPointInMap(), gameScreen.joystick);
         cmCamera.LookAt = playerController.drone.transform;
         cmCamera.Follow = playerController.drone.transform;
         for (int i = 0; i < configs.settings.maxOponentsInScene; i++)
@@ -44,23 +46,22 @@ public class GameView : MonoBehaviour
                 target.agent.Warp(GetRandomPointInMap()) ;
             });
         }
+        gameScreen.Show(playerController.model, oponentAIs.Select(ai => ai.model).ToList());
     }
     public static RivalsAI CreateRandomAI(Vector3 centrePosition, Vector3 position)
     {
-        PlayerModel model = new();
+        PlayerModel model = new(GameConfigs.Instance.settings.oponentNames.GetRandom());
+
         var drone = Instantiate(ResourceLoader.LoadAllDronePrefabes().GetRandom(), position, Quaternion.identity);
         RivalsAI ai = new RivalsAI(model, GameConfigs.Instance.settings.rivalsAISettings, drone, centrePosition);
         return ai;
     }
-    public static PlayerController CreatePlayer(Vector3 position)
+    public static PlayerController CreatePlayer(Vector3 position, Joystick joystick)
     {
-        PlayerModel playerModel = new();
-
-        var gameScreen = WindowManager.Instance.Show<GameScreen>();
-        gameScreen.Show(playerModel);
+        PlayerModel playerModel = new("You");
 
         var drone = Instantiate(ResourceLoader.LoadSelectedDronePrefab(), position, Quaternion.identity);
-        var controller = new PlayerController(gameScreen.joystick, drone, playerModel);
+        var controller = new PlayerController(joystick, drone, playerModel);
         return controller;
     }
     public static Tank CreateRandomTarget(Vector3 position)

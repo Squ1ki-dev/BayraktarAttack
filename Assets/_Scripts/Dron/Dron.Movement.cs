@@ -10,7 +10,8 @@ public partial class Dron
     {
         if (moveDirection != Vector3.zero)
         {
-            transform.rotation = Quaternion.LookRotation(moveDirection);
+            var rotate = Quaternion.LookRotation(moveDirection);
+            transform.rotation = Quaternion.Lerp(transform.rotation, rotate, _rotateSpeed * Time.fixedDeltaTime);
 
             _rigidbody.MovePosition(_rigidbody.position + (transform.forward * MoveSpeed * Time.fixedDeltaTime));
         }
