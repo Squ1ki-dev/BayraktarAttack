@@ -33,6 +33,7 @@ public class GameSession : Singleton<GameSession>
     {
         WindowManager.Instance.CloseAll();
         SceneManager.LoadScene(scene.ToString());
+        DynamicGI.UpdateEnvironment();
     }
     public void EndGame(GameModel model)
     {

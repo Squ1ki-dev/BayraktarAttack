@@ -30,6 +30,7 @@ public class GameView : MonoBehaviour
     }
     public void Start()
     {
+        DynamicGI.UpdateEnvironment();
         var gameScreen = WindowManager.Instance.Show<GameScreen>();
         playerController = CreatePlayer(GetRandomPointInMap(), gameScreen.joystick);
         cmCamera.LookAt = playerController.drone.transform;

@@ -5,7 +5,7 @@ using UnityEngine;
 
 public partial class Dron
 {
-    [SerializeField] private Transform targetObj;
+    [field: SerializeField] public Transform targetObj {get; private set;}
     [SerializeField] private Transform _bulletSpawnPoint;
     [SerializeField] private Bullet _bulletPrefab;
     [SerializeField] private float bulletSpawnPeriod;
@@ -19,10 +19,10 @@ public partial class Dron
 
         period = bulletSpawnPeriod;
         RaycastHit hit;
-        if (Physics.Raycast(_bulletSpawnPoint.position, _bulletSpawnPoint.position.Direction(targetObj.position), out hit, Mathf.Infinity))
+        if (Physics.Raycast(targetObj.position.WithY(100), targetObj.position.WithY(100).Direction(targetObj.position), out hit, Mathf.Infinity))
         {
             var tank = hit.transform.GetComponent<Tank>();
-            if (tank != null)
+            if (tank != null && !tank.IsDead)
             {
                 Shoot(tank =>
                 {
@@ -38,7 +38,6 @@ public partial class Dron
         if (!readyForAttack) return;
         readyForAttack = false;
         var bulletInst = Instantiate(_bulletPrefab, _bulletSpawnPoint.position, transform.rotation);
-        // bulletInst.GetComponent<Rigidbody>().velocity = _bulletSpawnPoint.position.Direction(targetObj.position) * _bulletSpeed;
         bulletInst.SetTarget(targetObj.position, onHit);
         Invoke(nameof(Recharge), period);
     }

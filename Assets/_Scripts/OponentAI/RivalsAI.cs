@@ -28,6 +28,7 @@ public partial class RivalsAI
         this.settings = settings;
         this.dron = drone;
         this.centrePoint = centrePoint;
+        dron.targetObj.transform.SetActive(false);
     }
     public void Update()
     {
