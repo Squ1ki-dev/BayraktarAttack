@@ -27,6 +27,7 @@ public class CinemachineFader : MonoBehaviour
         };
         rayCaster.OnRayExit += hit =>
         {
+            Debug.LogError("");
             var meshRenderer = hit.transform.GetComponent<MeshRenderer>();
             if (meshRenderer == null || lastCullingMaterials == null) return;
             meshRenderer.materials = lastCullingMaterials;
