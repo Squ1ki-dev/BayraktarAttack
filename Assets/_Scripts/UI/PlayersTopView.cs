@@ -9,10 +9,12 @@ public class PlayersTopView : MonoBehaviour
     [SerializeField] private TopItem prefab;
     [SerializeField] private RectTransform itemsContainer;
     private List<TopItem> views = new();
+    Connections connections = new Connections();
     public void Present(List<PlayerModel> oponents, PlayerModel player)
     {
+        connections.DisconnectAll();
         oponents.Add(player);// TODO BAD CODE
-        views = oponents.Present(prefab, itemsContainer, (view, model) =>
+        var presenter = oponents.Present(prefab, itemsContainer, (view, model) =>
         {
             view.Show(model);
             if (model == player)
@@ -20,7 +22,10 @@ public class PlayersTopView : MonoBehaviour
                 view.transform.localScale *= 1.1f;
                 view.SetColors(Color.white, Color.blue);
             }
-        }).views;
+        });
+        connections += presenter;
+        views = presenter.views;
+
     }
     private void SortViews()
     {

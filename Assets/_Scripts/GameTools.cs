@@ -10,10 +10,11 @@ public static class GameTools
     public static Vector3 WithX(this Vector3 from, float x) => new Vector3(x, from.y, from.z);
     public static Vector3 WithY(this Vector3 from, float y) => new Vector3(from.x, y, from.z);
 
-    public static bool HasGrount(Vector3 point, int layer = 0)
+    public static bool HasGrount(Vector3 point, LayerMask layer)
     {
-        return Physics.Raycast(point, Vector3.down, out RaycastHit hit, Mathf.Infinity);
-        // && hit.transform.gameObject.layer == layer;
+        // var l = Physics.Raycast(point.WithY(point.y + 100), Vector3.down, out RaycastHit testHit, Mathf.Infinity);
+        // if(l) Debug.LogError(testHit.transform.gameObject.layer + " " + testHit.transform.IsInLayerMask(layer));
+        return Physics.Raycast(point.WithY(point.y + 100), Vector3.down, out RaycastHit hit, Mathf.Infinity) &&  hit.transform.IsInLayerMask(layer);
     }
 
     public static void MoveToTarget(this Transform transform, Vector3 position, float step)

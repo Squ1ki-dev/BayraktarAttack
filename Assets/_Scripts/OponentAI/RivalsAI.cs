@@ -55,14 +55,11 @@ public partial class RivalsAI
     {
         foreach (var hit in Physics.OverlapSphere(transform.position, settings.attackRange, settings.whatIsTarget))
         {
+            if(hit.transform.position.y > transform.position.y || hit.transform.GetComponent<Tank>().IsDead) continue;
             targetForAttack = hit.transform;
+
             break;
         }
-
-        // RaycastHit hit;
-        // Physics.SphereCast(transform.position, settings._attackRange, Vector3.zero, out hit, settings.whatIsTarget);
-
-        // Physics.CheckSphere(transform.position, settings.attackRange, settings.whatIsTarget);
 
         bool targetInAttackRange = targetForAttack != null;
 

@@ -23,14 +23,10 @@ MonoBehaviour:
       serializedVersion: 2
       m_Bits: 64
     walkRange: 50
-    attackRange: 10
+    attackRange: 5
   oponentNames:
-  - Harry Potter
-  - Enotik
   - UKRAINE
   - USA
   - UK
-  - MoRoZoK
-  - IceGaming
-  - Pety
-  - Volan de mort
+  - Slovakia
+  - Germany

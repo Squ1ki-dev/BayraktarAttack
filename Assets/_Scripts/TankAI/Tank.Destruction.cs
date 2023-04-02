@@ -12,6 +12,7 @@ public partial class Tank
     public void Kill()
     {
         boomParticle.Play();
+        firePart.SetActive(true);
         firePart.Play();
         IsDead = true;
         agent.updatePosition = false;
@@ -20,6 +21,7 @@ public partial class Tank
         {
             onLife.Invoke(this);
             firePart.Stop();
+            firePart.SetActive(false);
             agent.updatePosition = true;
             agent.updateRotation = true;
             IsDead = false;

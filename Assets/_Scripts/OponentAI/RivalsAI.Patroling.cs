@@ -6,7 +6,7 @@ public partial class RivalsAI
 {
     private void Patroling()
     {
-        if (!GameTools.HasGrount(currentWalkPoint, GameConfigs.Instance.settings.rivalsAISettings.whatIsGround))
+        if (!GameTools.HasGrount(currentWalkPoint, settings.whatIsGround))
             SearchNewWalkPoint();
 
         MoveDroneToTarget(currentWalkPoint);

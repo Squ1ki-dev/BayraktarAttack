@@ -19,7 +19,7 @@ public class GameView : MonoBehaviour
     public Vector3 GetRandomPointInMap()
     {
         Vector3 point = GetRandomPoint();
-        for (int i = 0; i < 1000 && !GameTools.HasGrount(point, GameConfigs.Instance.settings.rivalsAISettings.whatIsGround); i++)
+        for (int i = 0; i < 1000 && !GameTools.HasGrount(point, configs.settings.rivalsAISettings.whatIsGround); i++)
         {
             point = GetRandomPoint();
         }
