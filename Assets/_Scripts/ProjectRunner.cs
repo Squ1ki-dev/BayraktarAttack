@@ -14,11 +14,12 @@ public class ProjectRunner : MonoBehaviour
     }
     void Start()
     {
-        SkinSelector skinSelector = new(skinPlace);
         if (isFirstSession)
         {
             GameSaves.Instance.selectedDroneName.value = GameConfigs.Instance.shopSettings.drones[0].drone.name;
         }
+        
+        SkinSelector skinSelector = new(skinPlace);
         WindowManager.Instance.Show<MainScreen>().Show(
             onPlay: () =>
         {
