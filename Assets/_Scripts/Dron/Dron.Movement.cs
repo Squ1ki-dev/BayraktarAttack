@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 
 public partial class Dron
@@ -17,5 +18,9 @@ public partial class Dron
         }
         else MoveForward(autoMovengSpeed);
     }
-    public void MoveForward(float speed) =>_rigidbody.MovePosition(_rigidbody.position + (transform.forward * speed * Time.fixedDeltaTime));
+    public void MoveForward(float speed)
+    {
+        if (chController == null) return;
+        chController.Move((transform.forward * speed * Time.fixedDeltaTime));
+    }
 }

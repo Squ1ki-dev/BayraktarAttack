@@ -4,10 +4,10 @@ using UnityEngine;
 
 public partial class Dron : MonoBehaviour
 {
-    private Rigidbody _rigidbody;
+    private CharacterController chController;
     [SerializeField] private Transform view;
     private void Awake()
     {
-        _rigidbody = GetComponent<Rigidbody>();
+        chController = GetComponent<CharacterController>();
     }
 }
