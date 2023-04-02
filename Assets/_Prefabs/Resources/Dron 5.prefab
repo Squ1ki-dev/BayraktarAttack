@@ -590,7 +590,7 @@ MonoBehaviour:
   autoMovengSpeed: 1
   <targetObj>k__BackingField: {fileID: 6496286702547580473}
   _bulletSpawnPoint: {fileID: 5006425137665278617}
-  _bulletPrefab: {fileID: 1855040610532505374, guid: d37cbac667633eb41b5fdebe64392b23,
+  _bulletPrefab: {fileID: 6906792357598361439, guid: 2bdc186a2c521f1488fe14cb4a745323,
     type: 3}
   targetZoneRadius: 1
   bulletSpawnPeriod: 0.05
