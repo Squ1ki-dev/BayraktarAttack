@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ce5cb0defd4ed643aeb95e8883dab6f, type: 3}
+  m_Name: ShopSettings
+  m_EditorClassIdentifier: 
+  drones:
+  - drone: {fileID: 6408873929461549355, guid: 1958df8856ddc304da9ef89dbbf472ac, type: 3}
+    cost: 0
+  - drone: {fileID: 6408873929461549355, guid: 9de96f9fb6cca5d419993ce60667059b, type: 3}
+    cost: 0
+  - drone: {fileID: 6408873929461549355, guid: de84a531ed5f5724cbc1959bf998c7f7, type: 3}
+    cost: 0
+  - drone: {fileID: 6408873929461549355, guid: 2a66702dfaffdf54792a9128dd954f17, type: 3}
+    cost: 0
+  - drone: {fileID: 6408873929461549355, guid: 24755191dde931547abfa7f33ce61b38, type: 3}
+    cost: 0

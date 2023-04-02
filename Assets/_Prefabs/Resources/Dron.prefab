@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6496286702547580473}
   - component: {fileID: 7415278117799338666}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Crosshair
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 4908956582786812941}
   - component: {fileID: 8678568141307887770}
   - component: {fileID: 8354289605280659442}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: V
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -196,7 +196,7 @@ GameObject:
   - component: {fileID: 6644880640652727180}
   - component: {fileID: 8665179804731768990}
   - component: {fileID: 6245239167050493910}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Volume92
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -278,7 +278,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5006425137665278617}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: SpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -313,7 +313,7 @@ GameObject:
   - component: {fileID: 5006425138496282467}
   - component: {fileID: 6408873929461549355}
   - component: {fileID: 4930732194684508265}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Dron
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -421,7 +421,7 @@ CharacterController:
   m_Enabled: 1
   serializedVersion: 2
   m_Height: 3
-  m_Radius: 0.5
+  m_Radius: 0.1
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
@@ -437,7 +437,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4823597498580039894}
   - component: {fileID: 2695001876920636072}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: View
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -487,7 +487,7 @@ GameObject:
   - component: {fileID: 909411609247295467}
   - component: {fileID: 3756052254340441471}
   - component: {fileID: 8895029436143794607}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -568,7 +568,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4270495901035734104}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Symmetry
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -600,7 +600,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 252949090940749932}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Null
   m_TagString: Untagged
   m_Icon: {fileID: 0}

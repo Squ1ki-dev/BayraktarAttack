@@ -289,6 +289,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Dron
       objectReference: {fileID: 0}
+    - target: {fileID: 5312854422305579628, guid: 24755191dde931547abfa7f33ce61b38,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 24755191dde931547abfa7f33ce61b38, type: 3}
 --- !u!1 &807841311
@@ -320,6 +325,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e91d30dc9c58a0d448e46c4587b88910, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  skinPlace: {fileID: 985194525}
 --- !u!4 &807841313
 Transform:
   m_ObjectHideFlags: 0
@@ -419,6 +425,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 26.888, y: 0, z: 0}
+--- !u!4 &985194525 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5006425138496282465, guid: 24755191dde931547abfa7f33ce61b38,
+    type: 3}
+  m_PrefabInstance: {fileID: 265445809}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1184617967
 GameObject:
   m_ObjectHideFlags: 0

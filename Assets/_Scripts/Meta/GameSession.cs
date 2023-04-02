@@ -12,18 +12,6 @@ public enum GameScenes
 
 public class GameSession : Singleton<GameSession>
 {
-    public bool isFirstSession
-    {
-        get { return !PlayerPrefsPro.Get<bool>(nameof(isFirstSession)); }
-        private set { PlayerPrefsPro.Set(nameof(isFirstSession), true); }
-    }
-    public GameSession()
-    {
-        if (isFirstSession)
-        {
-            GameSaves.Instance.selectedDroneName.value = ResourceLoader.LoadAllDronePrefabes()[0].name;
-        }
-    }
     public void StartGame()
     {
         WindowManager.Instance.CloseAll();

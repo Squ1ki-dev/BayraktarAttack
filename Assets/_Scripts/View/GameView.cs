@@ -64,6 +64,7 @@ public class GameView : MonoBehaviour
         PlayerModel playerModel = new("You");
 
         var drone = Instantiate(ResourceLoader.LoadSelectedDronePrefab(), position, Quaternion.identity);
+        Debug.LogError(GameSaves.Instance.selectedDroneName.value);
         var controller = new PlayerController(joystick, drone, playerModel);
         return controller;
     }
