@@ -1042,7 +1042,8 @@ PrefabInstance:
       propertyPath: m_CastShadows
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4846805737227619426, guid: db30d1c5e84f34148961210ea5f77528, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: db30d1c5e84f34148961210ea5f77528, type: 3}
 --- !u!4 &389929112 stripped
 Transform:
