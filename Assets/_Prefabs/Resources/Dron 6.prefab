@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3338420343312598452}
   - component: {fileID: 5183537883476083719}
   - component: {fileID: 5432177562640215366}
+  - component: {fileID: 4129077129142036756}
   m_Layer: 0
   m_Name: propeller
   m_TagString: Untagged
@@ -83,6 +84,22 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &4129077129142036756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1320801004010918295}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad792c63af68b2440a5263ae64bfda2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  x: 1
+  y: 0
+  z: 0
+  speed: 10000
 --- !u!1 &1735512382301326864
 GameObject:
   m_ObjectHideFlags: 0
@@ -331,8 +348,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   view: {fileID: 4823597498580039894}
-  <MoveSpeed>k__BackingField: 9
-  _rotateSpeed: 5
+  <MoveSpeed>k__BackingField: 6
+  _rotateSpeed: 4
   autoMovengSpeed: 5
   <targetObj>k__BackingField: {fileID: 6496286702547580473}
   _bulletSpawnPoint: {fileID: 5006425137665278617}

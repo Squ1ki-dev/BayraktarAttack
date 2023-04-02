@@ -408,7 +408,7 @@ MonoBehaviour:
   _bulletPrefab: {fileID: 1855040610532505374, guid: d37cbac667633eb41b5fdebe64392b23,
     type: 3}
   targetZoneRadius: 2
-  bulletSpawnPeriod: 1
+  bulletSpawnPeriod: 0.5
 --- !u!143 &4930732194684508265
 CharacterController:
   m_ObjectHideFlags: 0

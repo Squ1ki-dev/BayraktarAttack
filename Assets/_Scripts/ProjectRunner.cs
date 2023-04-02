@@ -8,5 +8,6 @@ public class ProjectRunner : MonoBehaviour
     void Start()
     {
         WindowManager.Instance.Show<MainScreen>().Show();
+        Application.targetFrameRate = 360;
     }
 }
