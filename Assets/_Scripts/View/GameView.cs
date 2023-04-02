@@ -77,6 +77,12 @@ public class GameView : MonoBehaviour
     {
         oponentAIs.ForEach(oa => oa.Update());
         playerController?.Update();
+
+        // TODO NEED REWRITE
+        targets.ForEach(t =>
+        {
+            if (t.transform.position.y > centreMapPoint.position.y) t.transform.position = GetRandomPointInMap();
+        });
     }
 
 }
