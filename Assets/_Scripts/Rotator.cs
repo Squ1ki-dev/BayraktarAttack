@@ -9,6 +9,6 @@ public class Rotator : MonoBehaviour
     private void FixedUpdate()
     {
         float step = speed * Time.fixedDeltaTime;
-        transform.Rotate(x ? step : 0, y ? step : 0, z ? step : 0);
+        transform.LocalRotate(x ? step : 0, y ? step : 0, z ? step : 0);
     }
 }
