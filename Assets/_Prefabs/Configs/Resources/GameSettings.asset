@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e0475af9df643048af3970181da6161, type: 3}
   m_Name: GameSettings
   m_EditorClassIdentifier: Assembly-CSharp::GameSettings
-  maxOponentsInScene: 3
+  maxOponentsInScene: 2
   maxTargetsInScene: 50
   gameSessionDuration: 60
   rivalsAISettings:
@@ -23,7 +23,7 @@ MonoBehaviour:
       serializedVersion: 2
       m_Bits: 64
     walkRange: 50
-    attackRange: 5
+    attackRange: 3
   oponentNames:
   - UKRAINE
   - USA
