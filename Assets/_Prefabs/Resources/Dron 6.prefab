@@ -356,7 +356,7 @@ MonoBehaviour:
   _bulletPrefab: {fileID: 1855040610532505374, guid: d37cbac667633eb41b5fdebe64392b23,
     type: 3}
   targetZoneRadius: 1
-  bulletSpawnPeriod: 1
+  bulletSpawnPeriod: 0.3
 --- !u!143 &4930732194684508265
 CharacterController:
   m_ObjectHideFlags: 0
@@ -517,7 +517,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -4533427234682876706, guid: 7197346b00309484aaa4497134a3027c, type: 3}
+  - {fileID: 2100000, guid: 2c5c7f2c41bc22942b16e325af03334c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

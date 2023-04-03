@@ -145,9 +145,9 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 4218046369211427024, guid: afb29c6d126b68d41b8722d7276c1736, type: 3}
-  - {fileID: -3879621958714992793, guid: afb29c6d126b68d41b8722d7276c1736, type: 3}
-  - {fileID: 4362962105363994262, guid: afb29c6d126b68d41b8722d7276c1736, type: 3}
+  - {fileID: 2100000, guid: afd40380479d7094fb665a428b99dccb, type: 2}
+  - {fileID: 2100000, guid: e968e5fa7ca3ca44eb0cc2ca6a15a433, type: 2}
+  - {fileID: 2100000, guid: e968e5fa7ca3ca44eb0cc2ca6a15a433, type: 2}
   - {fileID: -7674923503234155378, guid: afb29c6d126b68d41b8722d7276c1736, type: 3}
   - {fileID: 7211448773848044386, guid: afb29c6d126b68d41b8722d7276c1736, type: 3}
   m_StaticBatchInfo:
@@ -310,7 +310,7 @@ MonoBehaviour:
   _bulletPrefab: {fileID: 1855040610532505374, guid: d37cbac667633eb41b5fdebe64392b23,
     type: 3}
   targetZoneRadius: 1
-  bulletSpawnPeriod: 1
+  bulletSpawnPeriod: 0.3
 --- !u!143 &4930732194684508265
 CharacterController:
   m_ObjectHideFlags: 0
