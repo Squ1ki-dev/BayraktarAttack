@@ -15,6 +15,7 @@ public class GameSession : Singleton<GameSession>
     public void StartGame()
     {
         WindowManager.Instance.CloseAll();
+        TinySauce.OnGameStarted();
         LoadScene(GameScenes.GameScene);
     }
     private void LoadScene(GameScenes scene)
@@ -25,5 +26,6 @@ public class GameSession : Singleton<GameSession>
     public void EndGame(GameModel model)
     {
         LoadScene(GameScenes.MenuScene);
+        //TinySauce.OnGameFinished(model.Scores.value);
     }
 }
