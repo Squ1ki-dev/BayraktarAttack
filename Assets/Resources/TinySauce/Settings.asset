@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: faa11ec82e9746928e211e7f096812ca, type: 3}
+  m_Name: Settings
+  m_EditorClassIdentifier: 
+  gameAnalyticsIosGameKey: 01857b05497aae5e4acba0ac069ef8a4
+  gameAnalyticsIosSecretKey: 1dd1f5abe21f6662a8cedc4511488512e7ccf3a0
+  gameAnalyticsAndroidGameKey: 01857b05497aae5e4acba0ac069ef8a4
+  gameAnalyticsAndroidSecretKey: 1dd1f5abe21f6662a8cedc4511488512e7ccf3a0
+  facebookAppId: 109193395485716
+  facebookClientToken: fb109193395485716
+  adjustIOSToken: frjyvgnls074
+  adjustAndroidToken: frjyvgnls074
+  EditorIdfa: 258aad46-83a0-4efa-8ca3-86c02d4af526
+  UseRemoteConfig: 0
+  UseVoodooAnalytics: 1
+  companyName: IceGaming
+  privacyPolicyURL: https://drive.google.com/file/d/1Ex0yXObPVVCebY6oGR7T6Llz4t1Q24E1/view?usp=sharing
+  developerContactEmail: devunit46@gmail.com
