@@ -6,10 +6,11 @@ using UnityEngine;
 
 public class PlayersTopView : MonoBehaviour
 {
-    [SerializeField] private TopItem prefab;
+    [SerializeField] private TopItem prefab, playerTopItem;
     [SerializeField] private RectTransform itemsContainer;
     private List<TopItem> views = new();
     Connections connections = new Connections();
+    [SerializeField] private int topSize;
     public void Present(List<PlayerModel> oponents, PlayerModel player)
     {
         connections.DisconnectAll();
@@ -26,14 +27,18 @@ public class PlayersTopView : MonoBehaviour
         connections += presenter;
         views = presenter.views;
 
+        playerTopItem.Show(player);
     }
     private void SortViews()
     {
         if (views.Count == 0) return;
         views = views.OrderByDescending(v => v.currentModel.Scores.value).ToList();
+        playerTopItem.SetActive(true);
         for (int i = 0; i < views.Count; i++)
         {
             views[i].transform.SetSiblingIndex(i);
+            views[i].SetActive(i < topSize);
+            if(i < topSize && views[i].currentModel == playerTopItem.currentModel) playerTopItem.SetActive(false);
         }
     }
     private void Update()

@@ -11,7 +11,7 @@ public class TopItem : MonoBehaviour
     public PlayerModel currentModel { get; private set; }
     public void Show(PlayerModel model)
     {
-        model.Scores.SubscribeAndInvoke(value => massage.text = model.playerName + " " + value);
+        model.Scores.SubscribeAndInvoke(value => massage.text = model.playerName + ": " + value);
         currentModel = model;
     }
     public void SetColors(Color bgColor, Color textColor)

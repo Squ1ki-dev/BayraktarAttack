@@ -585,7 +585,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   view: {fileID: 4823597498580039894}
-  <MoveSpeed>k__BackingField: 6
+  <MoveSpeed>k__BackingField: 8
   _rotateSpeed: 5
   autoMovengSpeed: 1
   <targetObj>k__BackingField: {fileID: 6496286702547580473}
