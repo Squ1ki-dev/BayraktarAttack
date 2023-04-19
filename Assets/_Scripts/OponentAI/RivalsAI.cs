@@ -16,7 +16,7 @@ public partial class RivalsAI
 {
     public EnemyState currentState;
     private Dron dron;
-    private Transform targetForAttack;
+    private Tank targetForAttack;
     private Vector3 currentWalkPoint;
     Transform transform => dron.transform;
     RivalsAISettings settings;
@@ -55,8 +55,9 @@ public partial class RivalsAI
     {
         foreach (var hit in Physics.OverlapSphere(transform.position, settings.attackRange, settings.whatIsTarget))
         {
-            if(hit.transform.position.y > transform.position.y || hit.transform.GetComponent<Tank>().IsDead) continue;
-            targetForAttack = hit.transform;
+            var temp = hit.transform.GetComponent<Tank>();
+            if (hit.transform.position.y > transform.position.y || temp.IsDead) continue;
+            targetForAttack = temp;
 
             break;
         }

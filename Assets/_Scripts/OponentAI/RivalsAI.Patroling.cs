@@ -11,7 +11,7 @@ public partial class RivalsAI
 
         MoveDroneToTarget(currentWalkPoint);
 
-        if (Vector3.Distance(transform.position, currentWalkPoint) < 2f)
+        if (Vector3.Distance(transform.position, currentWalkPoint) < 5f)
             SearchNewWalkPoint();
     }
     private void SearchNewWalkPoint() => currentWalkPoint = RandomTools.GetRandomPointInRange(centrePoint, settings.walkRange, useY: false).WithY(transform.position.y);
