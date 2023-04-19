@@ -18,9 +18,9 @@ public class GameModel
     }
     private async void StartTimer(int duration)
     {
-        for (int i = 0; i < duration; i++)
+        while(TimeToEnd.value > 0)
         {
-            var wait = TaskTools.WaitForSeconds(1);
+            var wait = TaskTools.WaitForMilliseconds(1000);
             if (wait != null) await wait;
             else return;
             TimeToEnd.value--;
