@@ -6,7 +6,7 @@ public partial class RivalsAI
 {
     private void AttackTarget()
     {
-        if(targetForAttack.IsDead)
+        if(targetForAttack.IsDead) targetForAttack = null;
         if (targetForAttack == null) return;
         MoveDroneToTarget(targetForAttack.transform.position);
         dron.ShootIfHasTarget(tank =>
