@@ -23,7 +23,7 @@ MonoBehaviour:
       serializedVersion: 2
       m_Bits: 64
     walkRange: 50
-    attackRange: 6
+    attackRange: 3
   oponentNames:
   - UKRAINE
   - USA

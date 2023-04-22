@@ -20,9 +20,8 @@ public class GameModel
     {
         while(TimeToEnd.value > 0)
         {
-            var wait = TaskTools.WaitForMilliseconds(1000);
-            if (wait != null) await wait;
-            else return;
+            await TaskTools.WaitForMilliseconds(1000);
+            if (!Application.isPlaying) return;
             TimeToEnd.value--;
         }
         End();
