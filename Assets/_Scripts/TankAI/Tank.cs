@@ -8,7 +8,7 @@ public partial class Tank : MonoBehaviour
 {
     public NavMeshAgent agent;
     public float range; //radius of sphere
-
+    public bool isStoped = false;
     public Transform centrePoint;
 
     [SerializeField] private ParticleSystem boomParticle, firePart;
@@ -20,6 +20,9 @@ public partial class Tank : MonoBehaviour
 
     private void Update()
     {
+        if(isStoped) return;
         MoveTank();
     }
+
+    public void Stop() => isStoped = true;
 }

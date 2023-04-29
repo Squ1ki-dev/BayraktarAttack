@@ -22,6 +22,10 @@ public partial class RivalsAI
     RivalsAISettings settings;
     public PlayerModel model { get; private set; }
     Vector3 centrePoint;
+    public void Stop()
+    {
+        dron.Stop();
+    }
     public RivalsAI(PlayerModel model, RivalsAISettings settings, Dron drone, Vector3 centrePoint)
     {
         this.model = model;

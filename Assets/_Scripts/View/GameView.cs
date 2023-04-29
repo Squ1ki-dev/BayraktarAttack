@@ -48,8 +48,17 @@ public class GameView : MonoBehaviour
             });
         }
         GameModel gameModel = new GameModel();
-        gameScreen.Show(playerController.model, oponentAIs.Select(ai => ai.model).ToList(), gameModel);
-        gameModel.Start(GameConfigs.Instance.settings.gameSessionDuration, playerController.model, oponentAIs.Select(ai => ai.model).ToList());
+        gameModel.onEnd.AddListener(StopAll);
+        var allPlayers = oponentAIs.Select(ai => ai.model).ToList();
+        allPlayers.Add(playerController.model);
+        gameScreen.Show(playerController.model, allPlayers, gameModel);
+        gameModel.Start(GameConfigs.Instance.settings.gameSessionDuration, playerController.model, allPlayers);
+    }
+    public void StopAll()
+    {
+        oponentAIs.ForEach(oponent => oponent.Stop());
+        playerController.Stop();
+        targets.ForEach(target => target.Stop());
     }
     public static RivalsAI CreateRandomAI(Vector3 centrePosition, Vector3 position)
     {

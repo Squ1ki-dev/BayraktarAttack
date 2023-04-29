@@ -14,6 +14,10 @@ public partial class PlayerController
     public Dron drone { get; private set; }
     public PlayerModel model { get; private set; }
     private Joystick joystick;
+    public void Stop()
+    {
+        drone.Stop();
+    }
     public void Update()
     {
         drone.Move(new Vector3(joystick.Direction.x, 0, joystick.Direction.y));

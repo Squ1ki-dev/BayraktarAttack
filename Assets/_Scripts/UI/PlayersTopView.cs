@@ -14,7 +14,7 @@ public class PlayersTopView : MonoBehaviour
     public void Present(List<PlayerModel> oponents, PlayerModel player)
     {
         connections.DisconnectAll();
-        oponents.Add(player);// TODO BAD CODE
+        // oponents.Add(player);// TODO BAD CODE
         var presenter = oponents.Present(prefab, itemsContainer, (view, model) =>
         {
             view.Show(model);

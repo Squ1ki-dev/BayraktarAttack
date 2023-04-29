@@ -9,9 +9,9 @@ public class GameScreen : WindowBase
     [field: SerializeField] public Joystick joystick { get; private set; }
     [SerializeField] private TextMeshProUGUI timer;
     [SerializeField] private PlayersTopView top;
-    public void Show(PlayerModel player, List<PlayerModel> oponents, GameModel gameModel)
+    public void Show(PlayerModel player, List<PlayerModel> all, GameModel gameModel)
     {
         gameModel.TimeToEnd.SubscribeAndInvoke(value => timer.text = value.ToString());
-        top.Present(oponents, player);
+        top.Present(all, player);
     }
 }

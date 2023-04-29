@@ -7,8 +7,11 @@ public partial class Dron
 {
     [field: SerializeField] public float MoveSpeed { get; private set; }
     [SerializeField] private float _rotateSpeed, autoMovengSpeed;
+    bool isStoped = false;
+    public void Stop() => isStoped = true;
     public void Move(Vector3 moveDirection)
     {
+        if(isStoped) return;
         if (moveDirection != Vector3.zero)
         {
             var rotate = Quaternion.LookRotation(moveDirection);
