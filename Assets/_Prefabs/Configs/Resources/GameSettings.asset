@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GameSettings
   maxOponentsInScene: 5
   maxTargetsInScene: 100
-  gameSessionDuration: 60
+  gameSessionDuration: 3
   rivalsAISettings:
     whatIsGround:
       serializedVersion: 2
