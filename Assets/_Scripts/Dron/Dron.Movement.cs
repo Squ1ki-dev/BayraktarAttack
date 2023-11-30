@@ -8,11 +8,17 @@ using UnityEngine;
 // Partial definition of the 'Dron' class.
 public partial class Dron
 {
+//The [field: SerializeField] attribute is used here to specify that the attribute should be applied to the backing field of an auto-implemented property.
+//In C#, when you declare a property using an auto-implemented property. The compiler automatically generates a backing field for the property.
+//The [SerializeField] attribute is normally applied directly to fields, not properties.
+// However, when you use auto-implemented properties, the field is generated implicitly by the compiler, and you don't have direct access to it in your code.
+//The [field: SerializeField] attribute allows you to apply the [SerializeField] attribute to the generated backing field instead of the property itself.
+// In this case, it ensures that the MoveSpeed property can be serialized by the Unity Editor even though the backing field is not directly visible in the code.
+    
     // Serialized field for the movement speed of the drone.
     [field: SerializeField] public float MoveSpeed { get; private set; }
     // Serialized field for the rotation speed and autoMovingSpeed of the drone. 
     [SerializeField] private float _rotateSpeed, autoMovengSpeed;
-
     // Boolean flag indicating whether the drone is stopped.
     bool isStoped = false;
     
